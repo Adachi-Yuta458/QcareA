@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class LocalGovernment < ApplicationRecord
-  has_many :questions
+  has_many :questions, dependent: :destroy
 end
