@@ -1,0 +1,30 @@
+AllCops:
+  Exclude:
+    - Gemfile
+    - bin/bundle
+
+# ファイルの先頭にマジックコメント `# frozen_string_literal: true` を入れなくても許す
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# 日本語のコメントを許す
+Style/AsciiComments:
+  Enabled: false
+
+# 新人研修でメソッドの長さ10行は辛いです
+Metrics/MethodLength:
+  Max: 20
+
+# クラスとモジュールのコメントを書かなくても許す
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 45
+
+Metrics/ParameterLists:
+  Max: 6
+  CountKeywordArgs: true
+
+Layout/LineLength:
+  Max: 150
