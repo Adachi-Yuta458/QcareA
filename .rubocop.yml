@@ -1,7 +1,13 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
 AllCops:
   Exclude:
     - Gemfile
     - bin/bundle
+    - config/environments/development.rb
 
 # ファイルの先頭にマジックコメント `# frozen_string_literal: true` を入れなくても許す
 Style/FrozenStringLiteralComment:
