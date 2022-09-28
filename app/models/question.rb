@@ -3,7 +3,6 @@
 class Question < ApplicationRecord
   belongs_to :local_government
 
-  VALID_STATUSES = ['wait', 'working', 'completed']
+  enum status: [:wait, :working, :completed]
 
-  validates :status, inclusion: { in: VALID_STATUSES}
 end

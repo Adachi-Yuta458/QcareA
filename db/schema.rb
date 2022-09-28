@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2022_09_26_072712) do
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
     t.text "content", null: false
-    t.string "status", null: false
+    t.integer "status", null: false
     t.bigint "local_government_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
