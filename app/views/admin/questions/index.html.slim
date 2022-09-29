@@ -15,9 +15,9 @@ h1 質問一覧
         tr
           td= question.title
           td= question.content  
-          - if question.status == 0
+          - if question.wait?
             td= '回答待ち'
-          - elsif question.status == 1
+          - elsif question.working?
             td= '回答作成中'
           - else
             td= '回答済み'
