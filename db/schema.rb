@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_26_072712) do
+ActiveRecord::Schema.define(version: 2022_09_29_064051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.bigint "question_id"
+    t.string "title"
+    t.text "content"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "local_governments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,5 +44,6 @@ ActiveRecord::Schema.define(version: 2022_09_26_072712) do
     t.index ["local_government_id"], name: "index_questions_on_local_government_id"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "questions", "local_governments"
 end
