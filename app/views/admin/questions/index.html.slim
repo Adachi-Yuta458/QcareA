@@ -1,0 +1,26 @@
+h1 質問一覧
+
+.mb-3
+  table.table.table-hover
+    thead.thead-default
+      tr
+        th= Question.human_attribute_name(:title)
+        th= Question.human_attribute_name(:content)
+        th= Question.human_attribute_name(:status)
+        th= Question.human_attribute_name(:created_at)
+        th= Question.human_attribute_name(:updated_at)
+        th= Question.human_attribute_name(:local_government_id)
+    tbody
+      - @questions.each do |question|
+        tr
+          td= question.title
+          td= question.content  
+          - if question.wait?
+            td= '回答待ち'
+          - elsif question.working?
+            td= '回答作成中'
+          - else
+            td= '回答済み'
+          td= question.created_at
+          td= question.updated_at
+          td= question.local_government_id
