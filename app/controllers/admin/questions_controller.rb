@@ -1,8 +1,4 @@
 class Admin::QuestionsController < ApplicationController
-  def new
-    @question = Question.find(params[:id])
-  end
-
   def show
     @question = Question.find(params[:id])
   end
