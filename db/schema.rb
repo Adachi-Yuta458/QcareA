@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 2022_09_29_064051) do
     t.bigint "question_id"
     t.string "title"
     t.text "content"
-    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"

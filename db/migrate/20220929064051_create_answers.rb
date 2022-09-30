@@ -4,7 +4,6 @@ class CreateAnswers < ActiveRecord::Migration[6.1]
       t.belongs_to :question, foreign_key: true
       t.string :title
       t.text :content
-      t.string :name
 
       t.timestamps
     end
