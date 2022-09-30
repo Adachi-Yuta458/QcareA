@@ -13,10 +13,14 @@ ja:
       question:
         id: ID
         title: 質問タイトル
-        body: 質問本文
+        content: 質問本文
         created_at: 質問日時
         updated_at: 更新日時
         local_government_id: 役所ID
+      answer:
+        id: ID
+        title: 回答タイトル
+        content: 回答本文
   date:
     abbr_day_names:
     - 日

@@ -1,11 +1,19 @@
 class Admin::QuestionsController < ApplicationController
-  def new; end
+  def new
+    @question = Question.find(params[:id])
+  end
 
-  def edit; end
-
-  def show; end
+  def show
+    @question = Question.find(params[:id])
+  end
 
   def index
     @questions = Question.all
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:title, :content)
   end
 end
