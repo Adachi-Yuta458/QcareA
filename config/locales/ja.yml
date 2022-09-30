@@ -21,6 +21,8 @@ ja:
         id: ID
         title: 回答タイトル
         content: 回答本文
+        created_at: 回答日時
+        updated_at: 回答更新日時
   date:
     abbr_day_names:
     - 日

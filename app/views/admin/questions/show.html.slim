@@ -1,10 +1,14 @@
-h1 質問に回答する
+h1 回答画面
 
 .nav.justify-content-end
   = link_to '質問一覧に戻る', admin_questions_path, class: 'nav-link'
 
+h3 質問内容
 table.table.table-hover 
   tbody 
+    tr 
+      th= Question.human_attribute_name(:id)
+      td= @question.id
     tr 
       th= Question.human_attribute_name(:title)
       td= @question.title
@@ -29,6 +33,7 @@ table.table.table-hover
     = f.submit nil, value: '回答する', class: 'btn btn-primary'
 - else 
   table.table.table-hover 
+    h3 回答内容
     tbody 
       tr 
         th= Question.human_attribute_name(:id)
@@ -39,3 +44,9 @@ table.table.table-hover
       tr 
         th= Question.human_attribute_name(:content)
         td= @question.answer.content 
+      tr 
+        th= Question.human_attribute_name(:created_at)
+        td= @question.answer.created_at
+      tr 
+        th= Question.human_attribute_name(:updated_at)
+        td= @question.answer.updated_at
