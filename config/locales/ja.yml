@@ -24,6 +24,12 @@ ja:
         content: 回答本文
         created_at: 回答日時
         updated_at: 回答更新日時
+  enums:
+    question:
+      status:
+        wait: 未読
+        working: 作成中
+        completed: 回答済み
   date:
     abbr_day_names:
     - 日
