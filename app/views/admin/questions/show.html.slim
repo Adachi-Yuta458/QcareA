@@ -17,10 +17,10 @@ table.table.table-hover
       td= @question.content
     tr 
       th= Question.human_attribute_name(:created_at)
-      td= @question.created_at
+      td= l @question.created_at
     tr 
       th= Question.human_attribute_name(:updated_at)
-      td= @question.updated_at
+      td= l @question.updated_at
 
 - if @question.answer.nil?
   = form_with model: [:admin, @question, @question.build_answer], local: true do |f|
@@ -46,7 +46,7 @@ table.table.table-hover
         td= @question.answer.content 
       tr 
         th= Question.human_attribute_name(:created_at)
-        td= @question.answer.created_at
+        td= l @question.answer.created_at
       tr 
         th= Question.human_attribute_name(:updated_at)
-        td= @question.answer.updated_at
+        td= l @question.answer.updated_at

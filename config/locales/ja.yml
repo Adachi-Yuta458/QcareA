@@ -14,6 +14,7 @@ ja:
         id: ID
         title: 質問タイトル
         content: 質問本文
+        status: 回答ステータス
         created_at: 質問日時
         updated_at: 更新日時
         local_government_id: 役所ID
@@ -23,6 +24,12 @@ ja:
         content: 回答本文
         created_at: 回答日時
         updated_at: 回答更新日時
+  enums:
+    question:
+      status:
+        wait: 未読
+        working: 作成中
+        completed: 回答済み
   date:
     abbr_day_names:
     - 日
@@ -191,7 +198,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      default: "%Y/%m/%d %H:%M:%S"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
