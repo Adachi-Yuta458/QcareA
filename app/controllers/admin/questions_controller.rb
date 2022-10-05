@@ -4,16 +4,11 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
-  end
-
-  def search
-    if params[:status].empty?
+    if params[:status].nil? || params[:status].empty?
       @questions = Question.all
     else
       @questions = Question.where(status: params[:status])
     end
-    render :index
   end
 
   private
