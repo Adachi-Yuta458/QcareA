@@ -2,8 +2,12 @@ class Admin::AnswersController < ApplicationController
   def create
     @question = Question.find(params[:question_id])
     @answer = @question.build_answer(answer_params)
-    @answer.save!
-    @question.completed!
+    
+    ApplicationRecord.transaction do
+      @answer.save!
+      @question.completed!
+    end
+    
     redirect_to admin_question_path(@question)
   end
 
