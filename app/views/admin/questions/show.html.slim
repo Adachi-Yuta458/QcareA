@@ -1,0 +1,52 @@
+h1 回答画面
+
+.nav.justify-content-end
+  = link_to '質問一覧に戻る', admin_questions_path, class: 'nav-link'
+
+h3 質問内容
+table.table.table-hover 
+  tbody 
+    tr 
+      th= Question.human_attribute_name(:id)
+      td= @question.id
+    tr 
+      th= Question.human_attribute_name(:title)
+      td= @question.title
+    tr 
+      th= Question.human_attribute_name(:content)
+      td= @question.content
+    tr 
+      th= Question.human_attribute_name(:created_at)
+      td= l @question.created_at
+    tr 
+      th= Question.human_attribute_name(:updated_at)
+      td= l @question.updated_at
+
+- if @question.answer.nil?
+  = form_with model: [:admin, @question, @question.build_answer], local: true do |f|
+    .form-group 
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    .form-group
+      = f.label :content
+      = f.text_area :content, rows: 5, class: 'form-control'
+    = f.submit nil, value: '回答する', class: 'btn btn-primary'
+- else 
+  table.table.table-hover 
+    h3 回答内容
+    tbody 
+      tr 
+        th= Question.human_attribute_name(:id)
+        td= @question.answer.id
+      tr 
+        th= Question.human_attribute_name(:title)
+        td= @question.answer.title
+      tr 
+        th= Question.human_attribute_name(:content)
+        td= @question.answer.content 
+      tr 
+        th= Question.human_attribute_name(:created_at)
+        td= l @question.answer.created_at
+      tr 
+        th= Question.human_attribute_name(:updated_at)
+        td= l @question.answer.updated_at

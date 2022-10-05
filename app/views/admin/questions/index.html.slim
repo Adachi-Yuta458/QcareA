@@ -13,14 +13,14 @@ h1 質問一覧
     tbody
       - @questions.each do |question|
         tr
-          td= question.title
+          td= link_to question.title, admin_question_path(question)
           td= question.content  
           - if question.wait?
-            td= '回答待ち'
+            td= '未読'
           - elsif question.working?
-            td= '回答作成中'
+            td= '作成中'
           - else
             td= '回答済み'
-          td= question.created_at
-          td= question.updated_at
+          td= l question.created_at
+          td= l question.updated_at
           td= question.local_government_id

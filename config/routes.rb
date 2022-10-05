@@ -2,7 +2,9 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
   end
   root to: 'questions#index'
   resources :questions
