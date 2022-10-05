@@ -7,10 +7,6 @@ class Admin::QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def create
-    redirect_to admin_questions_path
-  end
-
   def search
     if params[:status].empty?
       @questions = Question.all
