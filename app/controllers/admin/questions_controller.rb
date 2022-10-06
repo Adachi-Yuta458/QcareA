@@ -1,4 +1,4 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::ApplicationController
 
   layout 'admin'
 
@@ -8,9 +8,9 @@ class Admin::QuestionsController < ApplicationController
 
   def index
     if params[:status].present?
-      @questions = Question.where(status: params[:status], local_government_id: current_lg)
+      @questions = current_lg.questions.where(status: params[:status])
     else
-      @questions = Question.where(local_government_id: current_lg.id)
+      @questions = current_lg.questions
     end
   end
 
