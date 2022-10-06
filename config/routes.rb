@@ -2,6 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :admin do
+    post 'questions', to: 'questions#index'
     resources :questions do
       resources :answers
     end

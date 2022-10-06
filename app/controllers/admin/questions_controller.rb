@@ -4,7 +4,11 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    if params[:status].present?
+      @questions = Question.where(status: params[:status])
+    else
+      @questions = Question.all
+    end
   end
 
   private
