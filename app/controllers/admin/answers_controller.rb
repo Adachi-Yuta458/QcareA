@@ -3,7 +3,7 @@ class Admin::AnswersController < Admin::ApplicationController
   layout 'admin'
 
   def create
-    @question = Question.find(params[:question_id])
+    @question = current_lg.questions.find(params[:question_id])
     @answer = @question.build_answer(answer_params)
     
     ApplicationRecord.transaction do

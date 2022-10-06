@@ -7,11 +7,8 @@ class Admin::QuestionsController < Admin::ApplicationController
   end
 
   def index
-    if params[:status].present?
-      @questions = current_lg.questions.where(status: params[:status])
-    else
-      @questions = current_lg.questions
-    end
+    @questions = current_lg.questions
+    @questions = @questions.where(status: params[:status]) if params[:status].present?
   end
 
   private
