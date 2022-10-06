@@ -1,4 +1,7 @@
 class Admin::AnswersController < ApplicationController
+
+  layout 'admin'
+
   def create
     @question = Question.find(params[:question_id])
     @answer = @question.build_answer(answer_params)
