@@ -1,14 +1,14 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::ApplicationController
+
+  layout 'admin'
+
   def show
     @question = Question.find(params[:id])
   end
 
   def index
-    if params[:status].present?
-      @questions = Question.where(status: params[:status])
-    else
-      @questions = Question.all
-    end
+    @questions = current_lg.questions
+    @questions = @questions.where(status: params[:status]) if params[:status].present?
   end
 
   private
