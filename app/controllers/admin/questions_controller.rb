@@ -4,10 +4,10 @@ class Admin::QuestionsController < ApplicationController
   end
 
   def index
-    if params[:status].nil? || params[:status].empty?
-      @questions = Question.all
-    else
+    if params[:status].present?
       @questions = Question.where(status: params[:status])
+    else
+      @questions = Question.all
     end
   end
 
