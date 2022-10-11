@@ -2,6 +2,7 @@
 
 class Question < ApplicationRecord
   belongs_to :local_government
+  belongs_to :nursing_facility
   has_one :answer, dependent: :destroy
   has_one_attached :attachment
 
