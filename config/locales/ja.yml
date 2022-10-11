@@ -18,6 +18,7 @@ ja:
         created_at: 質問日時
         updated_at: 更新日時
         local_government_id: 役所ID
+        service: サービス種別
       answer:
         id: ID
         title: 回答タイトル
@@ -30,6 +31,30 @@ ja:
         wait: 未読
         working: 作成中
         completed: 回答済み
+      service:
+        helper: 訪問介護
+        helper_bath: 訪問入浴介護
+        helper_nurse: 訪問看護
+        helper_rehab: 訪問リハビリテーション
+        day: 通所介護
+        day_rehab: 通所リハビリテーション
+        short: 短期入所生活介護
+        short_recuperation: 短期入所療養介護
+        residents: 特定施設入居者生活介護
+        welfare_lending: 福祉用具貸与
+        welfare_selling: 福祉用具販売
+        recuperation_guidance: 居宅療養管理指導
+        care_support: 居宅介護支援
+        special_home: 介護老人福祉施設入居者生活介護
+        nursing_care_residents: 介護老人保健施設入居者生活介護
+        nursing_care_clinic: 介護医療院
+        multifunctional: 小規模多機能型居宅介護
+        night_helper: 夜間対応型訪問介護
+        regular_helper: 定期巡回・随時対応型訪問介護看護
+        day_home: 認知症対応型通所介護
+        group_home: 認知症対応型共同生活介護
+        community_residents: 地域密着型特定施設入居者生活介護
+        community_special_home: 地域密着型介護老人福祉施設入居者生活介護
   date:
     abbr_day_names:
     - 日
