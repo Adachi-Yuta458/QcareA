@@ -1,0 +1,30 @@
+h1 質問一覧
+
+.p-3
+  ul.nav.nav-tabs
+    li.nav-item 
+      a.nav-link.active href="#qa1" data-bs-toggle="tab" 質問
+    li.nav-item 
+      a.nav-link href="#qa2" data-bs-toggle="tab" 投稿一覧
+  .tab-content 
+    .tab-pane.active id="qa1"
+      h2 質問フォーム作成予定
+    .tab-pane id="qa2"
+      .mb-3
+        table.table.table-hover
+          thead.thead-default
+            tr
+              th= Question.human_attribute_name(:title)
+              th= Question.human_attribute_name(:status)
+              th= Question.human_attribute_name(:created_at)
+              th= Question.human_attribute_name(:updated_at)
+              th= Question.human_attribute_name(:local_government_id)
+              th
+          tbody
+            - @questions.each do |question|
+              tr
+                td= link_to question.title, question   
+                td= question.status_i18n
+                td= l question.created_at
+                td= l question.updated_at
+                td= question.local_government_id
