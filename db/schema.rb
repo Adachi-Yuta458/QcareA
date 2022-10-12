@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 2022_10_12_014842) do
 
   create_table "nursing_facilities", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "local_government_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "local_government_id"
-    t.integer "local_government_id"
+    t.index ["local_government_id"], name: "index_nursing_facilities_on_local_government_id"
   end
 
   create_table "questions", force: :cascade do |t|
