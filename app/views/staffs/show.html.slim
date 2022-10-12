@@ -22,4 +22,5 @@ table.table.table-hover
     tr
       th= Staff.human_attribute_name(:updated_at)
       td= l @staff.updated_at
+= link_to '編集', edit_staff_path, class: 'btn btn-primary mr-3'
 
