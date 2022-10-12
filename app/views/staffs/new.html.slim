@@ -1,0 +1,19 @@
+h1 介護職員登録
+
+= form_with model: @staff, local: true do |f|
+  .form-group 
+    = f.label :name, '名前'
+    = f.text_field :name, class: 'form-control'
+  .form-group 
+    = f.label :email, 'メールアドレス'
+    = f.text_field :email, class: 'form-control'
+  .form-group 
+    = f.label :nursing_facility_id, '介護施設ID'
+    = f.text_field :nursing_facility_id, class: 'form-control'
+  .form-group 
+    = f.label :password, 'パスワード'
+    = f.text_field :password, class: 'form-control'
+  .form-group 
+    = f.label :password_confirmation, 'パスワード（確認）'
+    = f.text_field :password_confirmation, class: 'form-control'
+  = f.submit '登録する', class: 'btn btn-primary'
