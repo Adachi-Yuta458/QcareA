@@ -1,0 +1,24 @@
+h1 職員一覧
+
+= link_to '登録', new_staff_path, class: 'btn btn-primary'
+
+.mb-3 
+table.table.table-hover 
+  thead.thead-default 
+    tr 
+      th= Staff.human_attribute_name(:name)
+      th= Staff.human_attribute_name(:email)
+      th= Staff.human_attribute_name(:nursing_facility_id)
+      th= Staff.human_attribute_name(:created_at)
+      th= Staff.human_attribute_name(:updated_at)
+      th 
+  tbody 
+    - @staffs.each do |staff|
+      tr 
+        td= link_to staff.name, staff 
+        td= staff.email 
+        td= staff.nursing_facility_id 
+        td= l staff.created_at 
+        td= l staff.updated_at
+        td 
+

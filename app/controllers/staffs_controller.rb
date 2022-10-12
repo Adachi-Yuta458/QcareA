@@ -12,7 +12,11 @@ class StaffsController < ApplicationController
       render :new
     end
   end
-  
+
+  def index
+    @staffs = Staff.all
+  end
+
   private
 
   def staff_params

@@ -1,5 +1,8 @@
 h1 介護職員登録
 
+.nav.justify-content-end 
+  = link_to '職員一覧', staffs_path, class: 'nav-link'
+
 = form_with model: @staff, local: true do |f|
   .form-group 
     = f.label :name, '名前'
