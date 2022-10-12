@@ -63,12 +63,9 @@ ActiveRecord::Schema.define(version: 2022_10_11_083451) do
 
   create_table "nursing_facilities", force: :cascade do |t|
     t.string "name", null: false
-    t.string "email", null: false
-    t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "local_government_id"
-    t.index ["email"], name: "index_nursing_facilities_on_email", unique: true
   end
 
   create_table "questions", force: :cascade do |t|
