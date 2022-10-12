@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_023825) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_staffs_on_email", unique: true
+    t.index ["nursing_facility_id"], name: "index_staffs_on_nursing_facility_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

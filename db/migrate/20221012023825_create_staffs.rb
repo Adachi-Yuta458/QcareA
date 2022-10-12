@@ -8,6 +8,7 @@ class CreateStaffs < ActiveRecord::Migration[6.1]
 
       t.timestamps
       t.index :email, unique: true
+      t.index :nursing_facility_id
     end
   end
 end
