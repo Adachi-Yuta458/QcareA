@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_014842) do
+ActiveRecord::Schema.define(version: 2022_10_12_023825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,17 @@ ActiveRecord::Schema.define(version: 2022_10_12_014842) do
     t.integer "nursing_facility_id"
     t.index ["local_government_id"], name: "index_questions_on_local_government_id"
     t.index ["nursing_facility_id"], name: "index_questions_on_nursing_facility_id"
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.integer "nursing_facility_id", null: false
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_staffs_on_email", unique: true
+    t.index ["nursing_facility_id"], name: "index_staffs_on_nursing_facility_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
