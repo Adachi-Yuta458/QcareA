@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_014842) do
     t.integer "service"
     t.integer "nursing_facility_id"
     t.index ["local_government_id"], name: "index_questions_on_local_government_id"
+    t.index ["nursing_facility_id"], name: "index_questions_on_nursing_facility_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
