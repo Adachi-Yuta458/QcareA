@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :login_required
+
   def index
     @question = Question.new
     @questions = Question.all
@@ -27,5 +29,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:service, :title, :content, :status, :attachment)
+  end
+
+  def login_required
+    redirect_to login_path unless current_staff
   end
 end
