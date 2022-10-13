@@ -12,10 +12,8 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.attachment = params[:question][:attachment]
 
-    #市町村選択機能は、職員登録機能実装時に作成するため、今は仮のIDを入力
-    @question.local_government_id = 4
-    #介護施設選択機能は、職員登録機能実装時に作成するため、今は仮のIDを入力
-    @question.nursing_facility_id = 1
+    @question.local_government_id = current_staff.nursing_facility.local_government_id
+    @question.nursing_facility_id = current_staff.nursing_facility.id
     
     ApplicationRecord.transaction do
       @question.save!
