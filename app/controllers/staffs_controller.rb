@@ -35,6 +35,12 @@ class StaffsController < ApplicationController
     end
   end
 
+  def destroy
+    @staff = Staff.find(params[:id])
+    @staff.destroy
+    redirect_to staffs_url, notice: "職員「#{@staff.name}」の登録を削除しました"
+  end
+
   private
 
   def staff_params

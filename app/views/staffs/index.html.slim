@@ -22,4 +22,4 @@ table.table.table-hover
         td= l staff.updated_at
         td 
           =link_to '編集', edit_staff_path(staff), class: 'btn btn-primary mr-3'
-
+          =link_to '削除', staff, method: :delete, data: { confirm: "職員「#{staff.name}」登録を削除します。よろしいですか？" }, class: 'btn btn-danger'
