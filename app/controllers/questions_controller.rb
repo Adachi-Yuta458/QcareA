@@ -5,7 +5,7 @@ class QuestionsController < ApplicationController
 
   def index
     @question = Question.new
-    @questions = Question.all
+    @questions = current_staff.nursing_facility.questions
   end
 
   def create
