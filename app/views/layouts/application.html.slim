@@ -13,6 +13,16 @@ html
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
       .navbar-brand Q care A 
-
+      - if current_staff 
+        ul.navbar-nav.me-auto 
+          li.nav-item= link_to '質問トップ', questions_path, class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', logout_path, method: :delete, class: 'nav-link'
+        ul.navbar-nav.ms-auto 
+          li.nav-item= "#{current_staff.nursing_facility.name}/"
+          li.nav-item= current_staff.name
+      - else 
+        ul.navbar-nav.me-auto
+          li.nav-item= link_to 'ログイン', login_path, class: 'nav-link'
+        
     .container
     = yield
