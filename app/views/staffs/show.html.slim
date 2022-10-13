@@ -1,0 +1,26 @@
+h1 職員詳細
+
+.nav.justify-content-end 
+  = link_to '職員一覧', staffs_path, class: 'nav-link'
+table.table.table-hover 
+  tbody 
+    tr 
+      th= Staff.human_attribute_name(:id)
+      td= @staff.id
+    tr 
+      th= Staff.human_attribute_name(:name)
+      td= @staff.name
+    tr 
+      th= Staff.human_attribute_name(:email)
+      td= @staff.email
+    tr 
+      th= Staff.human_attribute_name(:nursing_facility_id)
+      td= @staff.nursing_facility_id
+    tr 
+      th= Staff.human_attribute_name(:created_at)
+      td= l @staff.created_at
+    tr
+      th= Staff.human_attribute_name(:updated_at)
+      td= l @staff.updated_at
+= link_to '編集', edit_staff_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @staff, method: :delete, data: { confirm: "職員「#{@staff.name}」登録を削除します。よろしいですか？" }, class: 'btn btn-danger'

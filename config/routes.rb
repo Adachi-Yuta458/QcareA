@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   end
   root to: 'questions#index'
   resources :questions
+  resources :staffs
 end

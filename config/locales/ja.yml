@@ -25,6 +25,13 @@ ja:
         content: 回答本文
         created_at: 回答日時
         updated_at: 回答更新日時
+      staff:
+        id: ID
+        name: 氏名
+        email: メールアドレス
+        nursing_facility_id: 介護施設ID
+        created_at: 登録日時
+        updated_at: 更新日時
   enums:
     question:
       status:
