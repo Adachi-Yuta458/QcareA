@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_12_023825) do
+ActiveRecord::Schema.define(version: 2022_10_17_073413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_10_12_023825) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "service"
     t.integer "nursing_facility_id"
+    t.integer "tags", default: 0, null: false
     t.index ["local_government_id"], name: "index_questions_on_local_government_id"
     t.index ["nursing_facility_id"], name: "index_questions_on_nursing_facility_id"
   end
