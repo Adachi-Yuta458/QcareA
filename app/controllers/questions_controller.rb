@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :login_required
+
   def index
     @question = Question.new
-    @questions = Question.all
+    @questions = current_staff.nursing_facility.questions
   end
 
   def create
     @question = Question.new(question_params)
     @question.attachment = params[:question][:attachment]
 
-    #市町村選択機能は、職員登録機能実装時に作成するため、今は仮のIDを入力
-    @question.local_government_id = 4
-    #介護施設選択機能は、職員登録機能実装時に作成するため、今は仮のIDを入力
-    @question.nursing_facility_id = 1
+    @question.local_government_id = current_staff.nursing_facility.local_government_id
+    @question.nursing_facility_id = current_staff.nursing_facility.id
     
     ApplicationRecord.transaction do
       @question.save!
@@ -27,5 +27,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:service, :title, :content, :status, :attachment)
+  end
+
+  def login_required
+    redirect_to login_path unless current_staff
   end
 end

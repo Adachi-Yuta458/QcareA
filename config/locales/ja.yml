@@ -19,6 +19,7 @@ ja:
         updated_at: 更新日時
         local_government_id: 役所ID
         service: サービス種別
+        nursing_facility_id: 施設ID
       answer:
         id: ID
         title: 回答タイトル
