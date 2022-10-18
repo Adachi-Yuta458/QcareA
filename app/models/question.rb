@@ -13,5 +13,6 @@ class Question < ApplicationRecord
                   care_support: 12, special_home: 13, nursing_care_residents: 14,
                   nursing_care_clinic: 15, multifunctional: 16, night_helper: 17,
                   regular_helper: 18, day_home: 19, group_home: 20, community_residents: 21,
-                  community_special_home: 22 }                 
+                  community_special_home: 22 } 
+  flag :categories, [:operation, :personnel, :system, :application, :invoice, :addition, :error]                
 end
