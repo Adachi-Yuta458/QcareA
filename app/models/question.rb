@@ -14,5 +14,5 @@ class Question < ApplicationRecord
                   nursing_care_clinic: 15, multifunctional: 16, night_helper: 17,
                   regular_helper: 18, day_home: 19, group_home: 20, community_residents: 21,
                   community_special_home: 22 } 
-  flag :category, [:operation, :personnel, :system, :application, :invoice, :addition, :error]                
+  flag :categories, [:operation, :personnel, :system, :application, :invoice, :addition, :error]                
 end
