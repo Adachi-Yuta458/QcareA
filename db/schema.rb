@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2022_10_17_073413) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "service"
     t.integer "nursing_facility_id"
-    t.integer "tags", default: 0, null: false
+    t.integer "category", default: 0, null: false
     t.index ["local_government_id"], name: "index_questions_on_local_government_id"
     t.index ["nursing_facility_id"], name: "index_questions_on_nursing_facility_id"
   end
