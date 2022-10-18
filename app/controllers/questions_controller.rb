@@ -10,6 +10,10 @@ class QuestionsController < ApplicationController
     @questions = @questions.where(status: params[:status]).order(created_at: :desc) if params[:status].present?
   end
 
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def create
     @question = Question.new(question_params)
     @question.attachment = params[:question][:attachment]
