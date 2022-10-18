@@ -17,6 +17,7 @@ h1 質問一覧
         th= Question.human_attribute_name(:created_at)
         th= Question.human_attribute_name(:updated_at)
         th= Question.human_attribute_name(:local_government_id)
+        th= Question.human_attribute_name(:categories)
     tbody
       - @questions.each do |question|
         tr
@@ -26,3 +27,5 @@ h1 質問一覧
           td= l question.created_at
           td= l question.updated_at
           td= question.local_government_id
+          - question.categories.to_human.each do |category|
+            td= category
