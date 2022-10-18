@@ -19,6 +19,12 @@ h1 質問一覧
         .form-group
           = f.label :content, '質問本文'
           = f.text_area :content, rows: 5, class: 'form-control', id: 'question_content'
+        .form-group
+          = f.label :categories, '質問タグ'
+          br
+          = f.collection_check_boxes(:categories, Question.categories.pairs, :last, :first) do |b|
+            = b.label { b.check_box + b.text }
+            br
         .form-group 
           .mt-3
             = f.label :attachment, '添付ファイル'
