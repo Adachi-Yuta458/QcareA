@@ -28,7 +28,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:service, :title, :content, :status, :attachment)
+    params.require(:question).permit(:service, :title, :content, :status, :attachment, :categories => [])
   end
 
   def login_required
