@@ -9,6 +9,16 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     model:
       question: 質問
+    active_flag:
+      question:
+        categories:
+          operation: 運営基準
+          personnel: 人員基準
+          system: 制度改正
+          application: 申請・届出関係
+          invoice: 請求
+          addition: 加算
+          error: 過誤調整
     attributes:
       question:
         id: ID
