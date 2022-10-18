@@ -5,9 +5,9 @@ class QuestionsController < ApplicationController
 
   def index
     @question = Question.new
-    @questions = current_staff.nursing_facility.questions
-    @questions = @questions.where(service: params[:service]) if params[:service].present?
-    @questions = @questions.where(status: params[:status]) if params[:status].present?
+    @questions = current_staff.nursing_facility.questions.order(created_at: :desc)
+    @questions = @questions.where(service: params[:service]).order(created_at: :desc) if params[:service].present?
+    @questions = @questions.where(status: params[:status]).order(created_at: :desc) if params[:status].present?
   end
 
   def create

@@ -7,8 +7,8 @@ class Admin::QuestionsController < Admin::ApplicationController
   end
 
   def index
-    @questions = current_lg.questions
-    @questions = @questions.where(status: params[:status]) if params[:status].present?
+    @questions = current_lg.questions.order(created_at: :desc)
+    @questions = @questions.where(status: params[:status]).order(created_at: :desc) if params[:status].present?
   end
 
   private
