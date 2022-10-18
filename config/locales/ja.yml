@@ -30,6 +30,7 @@ ja:
         local_government_id: 役所ID
         service: サービス種別
         nursing_facility_id: 施設ID
+        categories: 質問タグ
       answer:
         id: ID
         title: 回答タイトル
