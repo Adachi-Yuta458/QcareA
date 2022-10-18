@@ -1,14 +1,13 @@
 h1 質問一覧
 
 = form_with url: admin_questions_path, local: true do |f|
-  .form-group 
+  .form-group.my-3
     = f.label :status, '回答ステータス'
-    br
     = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
-       { include_blank: true }, class: 'form-select'
+       { include_blank: true }
   = f.submit nil, value: '検索する', class: 'btn btn-primary'
 
-.mb-3
+.my-3
   table.table.table-hover
     thead.thead-default
       tr
