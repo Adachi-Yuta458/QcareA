@@ -11,7 +11,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find(params[:id])
+    @question = current_staff.nursing_facility.questions.find(params[:id])
   end
 
   def create

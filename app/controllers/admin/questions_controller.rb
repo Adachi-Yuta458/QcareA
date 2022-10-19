@@ -3,7 +3,7 @@ class Admin::QuestionsController < Admin::ApplicationController
   layout 'admin'
 
   def show
-    @question = Question.find(params[:id])
+    @question = current_lg.questions.find(params[:id])
   end
 
   def index
