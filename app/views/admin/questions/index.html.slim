@@ -1,6 +1,14 @@
 h1 質問一覧
 
+= javascript_pack_tag 'index'
+
 = form_with url: admin_questions_path, local: true do |f|
+  .form-group.row.mt-3
+    = f.label :service, 'サービス種別'
+    .col-sm-4
+      .border.rounded
+        = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+        { include_blank: true }, class: 'form-control js-searchable'
   .form-group.my-3
     = f.label :status, '回答ステータス'
     = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
