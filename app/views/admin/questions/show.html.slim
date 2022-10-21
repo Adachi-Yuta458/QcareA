@@ -16,6 +16,9 @@ table.table.table-hover
       th= Question.human_attribute_name(:content)
       td= @question.content
     tr 
+      th= Question.human_attribute_name(:status)
+      td= @question.status_i18n
+    tr 
       th= Question.human_attribute_name(:categories)
       td= @question.categories.to_human.join(' ')
     tr 
