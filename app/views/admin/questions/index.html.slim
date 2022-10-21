@@ -19,6 +19,7 @@ h1 質問一覧
   table.table.table-hover
     thead.thead-default
       tr
+        th= Question.human_attribute_name(:service)
         th= Question.human_attribute_name(:title)
         th= Question.human_attribute_name(:content)
         th= Question.human_attribute_name(:status)
@@ -29,6 +30,7 @@ h1 質問一覧
     tbody
       - @questions.each do |question|
         tr
+          td= question.service_i18n
           td= link_to question.title, admin_question_path(question)
           td= question.content  
           td= question.status_i18n
