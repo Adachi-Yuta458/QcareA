@@ -4,11 +4,16 @@ class Admin::AnswersController < Admin::ApplicationController
 
   def create
     @question = current_lg.questions.find(params[:question_id])
-    @answer = @question.build_answer(answer_params)
-    
-    ApplicationRecord.transaction do
-      @answer.save!
-      @question.completed!
+
+    if params[:update]
+      @answer = @question.build_answer(answer_params)
+
+      ApplicationRecord.transaction do
+        @answer.save!
+        @question.completed!
+      end
+    else
+      @question.working!
     end
     
     redirect_to admin_question_path(@question)
