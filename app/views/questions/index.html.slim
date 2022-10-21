@@ -1,5 +1,7 @@
 h1 質問一覧
 
+= javascript_pack_tag 'index'
+
 .p-3
   ul.nav.nav-tabs
     li.nav-item 
@@ -11,8 +13,10 @@ h1 質問一覧
       = form_with model: @question, local: true do |f|
         .form-group 
           = f.label :service, 'サービス種別'
-          = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
-            {}, class: 'form-select'
+          .col-sm-4
+            .border.rounded
+              = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+              { include_blank: true }, class: 'form-control js-searchable'
         .form-group 
           = f.label :title, '質問タイトル'
           = f.text_field :title, class: 'form-control', id: 'question_title'
@@ -34,14 +38,17 @@ h1 質問一覧
           = f.submit nil, value: '質問を投稿', class: 'btn btn-primary'
     .tab-pane id="qa2"
       = form_with url: questions_path, method: 'get', local: true do |f|
-        .form-group.mt-3
-          = f.label :service, 'サービス種別'
-          = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
-          { include_blank: true }
+        .form-group.row.mt-3
+              = f.label :service, 'サービス種別'
+              .col-sm-4
+                .border.rounded
+                  = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+                  { include_blank: true }, class: 'form-control js-searchable'
         .form-group.my-3
           = f.label :status, '回答ステータス'
-          = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
-          { include_blank: true }
+          .col-sm-1
+            = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
+            { include_blank: true }, class: 'form-control'
         = f.submit nil, value: '検索する', class: 'btn btn-primary'
 
         .mb-3
