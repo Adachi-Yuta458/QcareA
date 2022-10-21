@@ -8,6 +8,7 @@ class Admin::QuestionsController < Admin::ApplicationController
 
   def index
     @questions = current_lg.questions.order(created_at: :desc)
+    @questions = @questions.where(service: params[:service]).order(created_at: :desc) if params[:service].present?
     @questions = @questions.where(status: params[:status]).order(created_at: :desc) if params[:status].present?
   end
 
