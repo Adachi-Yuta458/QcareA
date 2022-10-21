@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
     resources :questions do
       resources :answers
+      resources :activenesses, module: 'questions'
     end
   end
   root to: 'questions#index'

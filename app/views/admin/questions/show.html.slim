@@ -16,6 +16,9 @@ table.table.table-hover
       th= Question.human_attribute_name(:content)
       td= @question.content
     tr 
+      th= Question.human_attribute_name(:status)
+      td= @question.status_i18n
+    tr 
       th= Question.human_attribute_name(:categories)
       td= @question.categories.to_human.join(' ')
     tr 
@@ -33,7 +36,10 @@ table.table.table-hover
     .form-group
       = f.label :content
       = f.text_area :content, rows: 5, class: 'form-control'
-    = f.submit nil, value: '回答する', class: 'btn btn-primary'
+    .d-grid.gap-2.col-3.mx-auto.my-3
+      = f.submit nil, name: 'update', value: '回答する', class: 'btn btn-primary'
+  .d-grid.gap-2.col-3.mx-auto.my-3
+    = link_to '作成中', admin_question_activenesses_path(@question), method: 'post', class: 'btn btn-primary'
 - else 
   table.table.table-hover 
     h3 回答内容
