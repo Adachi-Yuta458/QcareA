@@ -55,20 +55,19 @@
                 { include_blank: true }, class: 'form-control'
           = f.submit nil, value: '検索する', class: 'btn btn-primary'
 
-          .mb-3
-          table.table.table-hover
-            thead.thead-default
-              tr
-                th= Question.human_attribute_name(:service)
-                th= Question.human_attribute_name(:title)
-                th= Question.human_attribute_name(:status)
-                th= Question.human_attribute_name(:categories)
-                th= Question.human_attribute_name(:created_at)
-            tbody
-              - @questions.each do |question|
-                tr
-                  td= question.service_i18n
-                  td= link_to question.title, question 
-                  td= question.status_i18n
-                  td= question.categories.to_human.join(' ')
-                  td= l question.created_at
+        .mb-3
+        .row.row-cols-1.row-cols-md-2.g-4
+          - @questions.each do |question|
+            .col
+              .card.mb-4.shadow-sm.h-md-250
+                .card-body
+                  .mb-2.text-success
+                    strong= question.status_i18n
+                  h5= question.title
+                  .mb-2.text-muted
+                    = l question.created_at
+                  p= question.content
+                  .small
+                    p= question.categories.to_human.join(' ')
+                  =link_to '詳細を見る', question 
+
