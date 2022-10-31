@@ -29,10 +29,10 @@
                 .mb-3
                   = f.label :categories, '質問タグ', class: 'mb-2'
                   br
-                  .border.col-md-2
+                  .form-check
                     = f.collection_check_boxes(:categories, Question.categories.pairs, :last, :first) do |b|
-                      = b.label { b.check_box + b.text }
-                      br
+                      .form-check-inline
+                        = b.label { b.check_box + b.text }
               .form-group 
                 = f.label :attachment, '添付ファイル', class: 'mb-2'
                 br
