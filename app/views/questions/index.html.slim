@@ -47,7 +47,7 @@
                   .border.rounded
                     = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
                     { include_blank: true }, class: 'form-control js-searchable'
-            .row 
+            .row.mb-3
               .col-8
                 .row.mb-3
                   = f.label :status, '回答ステータス', class: 'col-3 col-form-label'
@@ -56,8 +56,6 @@
                     { include_blank: true }, class: 'form-control'
               .col-4
                 = f.submit nil, value: '検索する', class: 'btn btn-primary'
-
-        .mb-3
         .row.row-cols-1.row-cols-md-2.g-4
           - @questions.each do |question|
             .col
