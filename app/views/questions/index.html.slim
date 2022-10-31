@@ -7,35 +7,37 @@
   hr
     .tab-content
       .tab-pane.active id="qa1"
-        = form_with model: @question, local: true do |f|
-          .form-group
-            .my-3
-              = f.label :service, 'サービス種別', class: 'col-form-label mb-2'
-              .border.rounded
-                = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
-                  { include_blank: true }, class: 'js-searchable form-control'
-          .form-group 
-            .mb-3
-              = f.label :title, '質問タイトル', class: 'mb-2'
-              = f.text_field :title, class: 'form-control', id: 'question_title'
-          .form-group
-            .mb-3
-              = f.label :content, '質問本文', class: 'mb-2'
-              = f.text_area :content, rows: 5, class: 'form-control', id: 'question_content'
-          .form-group
-            .mb-3
-              = f.label :categories, '質問タグ', class: 'mb-2'
-              br
-              .form-check
-                = f.collection_check_boxes(:categories, Question.categories.pairs, :last, :first) do |b|
-                  .form-check-inline
-                    = b.label { b.check_box + b.text }
-          .form-group 
-            = f.label :attachment, '添付ファイル', class: 'mb-2'
-            br
-            = f.file_field :attachment
-          hr.mb-4
-          = f.submit nil, value: '質問を投稿', class: 'btn btn-primary mb-4'
+        .row 
+          .col-10
+            = form_with model: @question, local: true do |f|
+              .form-group
+                .mb-3
+                  = f.label :service, 'サービス種別', class: 'col-form-label mb-1'
+                  .border.rounded
+                    = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+                      { include_blank: true }, class: 'js-searchable form-control'
+              .form-group 
+                .mb-3
+                  = f.label :title, '質問タイトル', class: 'mb-2'
+                  = f.text_field :title, class: 'form-control', id: 'question_title'
+              .form-group
+                .mb-3
+                  = f.label :content, '質問本文', class: 'mb-2'
+                  = f.text_area :content, rows: 5, class: 'form-control', id: 'question_content'
+              .form-group
+                .mb-3
+                  = f.label :categories, '質問タグ', class: 'mb-2'
+                  br
+                  .form-check
+                    = f.collection_check_boxes(:categories, Question.categories.pairs, :last, :first) do |b|
+                      .form-check-inline
+                        = b.label { b.check_box + b.text }
+              .form-group 
+                = f.label :attachment, '添付ファイル', class: 'mb-2'
+                br
+                = f.file_field :attachment
+              hr.mb-4
+              = f.submit nil, value: '質問を投稿', class: 'btn btn-primary mb-4'
       .tab-pane id="qa2"
         = form_with url: questions_path, method: 'get', local: true do |f|
           .form-group
