@@ -12,12 +12,11 @@
           .tab-pane.active id="qa1"
             = form_with model: @question, local: true do |f|
               .form-group
-                .mb-3
-                  .row
-                    = f.label :service, 'サービス種別', class: 'col-auto'
-                    .col-sm-4.border.rounded
-                      = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
-                      { include_blank: true }, class: 'js-searchable col-auto'
+                .my-3
+                  = f.label :service, 'サービス種別', class: 'col-form-label mb-2'
+                  .border.rounded
+                    = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+                      { include_blank: true }, class: 'js-searchable form-control'
               .form-group 
                 .mb-3
                   = f.label :title, '質問タイトル', class: 'mb-2'
