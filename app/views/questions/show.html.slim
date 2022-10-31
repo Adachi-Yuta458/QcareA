@@ -12,7 +12,14 @@
       h5= @question.title
       .mb-2.text-muted
         = l @question.created_at
-      p= @question.content
+      .mb-4.small
+        p= @question.content
+      - unless @question.answer.nil?
+        .mb-4
+          h5= @question.answer.title 
+          .mb-2.text-muted 
+            = l @question.answer.created_at
+          p= @question.answer.content
       .small
         p= @question.categories.to_human.join(' ')
 
