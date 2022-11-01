@@ -21,20 +21,20 @@ ja:
           error: 過誤調整
     attributes:
       question:
-        id: ID
-        title: 質問タイトル
-        content: 質問本文
-        status: 回答ステータス
+        id: 質問ID
+        title: タイトル
+        content: 本文
+        status: ステータス
         created_at: 質問日時
         updated_at: 更新日時
         local_government_id: 役所ID
         service: サービス種別
         nursing_facility_id: 施設ID
-        categories: 質問タグ
+        categories: タグ
       answer:
-        id: ID
-        title: 回答タイトル
-        content: 回答本文
+        id: 回答ID
+        title: タイトル
+        content: 本文
         created_at: 回答日時
         updated_at: 回答更新日時
       staff:

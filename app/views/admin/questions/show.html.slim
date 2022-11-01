@@ -27,9 +27,6 @@
           tr 
             th.bg-light= Question.human_attribute_name(:created_at)
             td= l @question.created_at
-          tr 
-            th.bg-light= Question.human_attribute_name(:updated_at)
-            td= l @question.updated_at
 
   - if @question.answer.nil?
     = form_with model: [:admin, @question, @question.build_answer], local: true do |f|
@@ -49,17 +46,14 @@
         table.mb-4.table.table-hover.table-bordered
           tbody 
             tr 
-              th.bg-light style= "width: 20%"= Question.human_attribute_name(:id)
+              th.bg-light style= "width: 20%"= Answer.human_attribute_name(:id)
               td= @question.answer.id
             tr 
-              th.bg-light= Question.human_attribute_name(:title)
+              th.bg-light= Answer.human_attribute_name(:title)
               td= @question.answer.title
             tr 
-              th.bg-light= Question.human_attribute_name(:content)
+              th.bg-light= Answer.human_attribute_name(:content)
               td= @question.answer.content 
             tr 
-              th.bg-light= Question.human_attribute_name(:created_at)
+              th.bg-light= Answer.human_attribute_name(:created_at)
               td= l @question.answer.created_at
-            tr 
-              th.bg-light= Question.human_attribute_name(:updated_at)
-              td= l @question.answer.updated_at
