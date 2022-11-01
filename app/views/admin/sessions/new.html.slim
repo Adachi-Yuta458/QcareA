@@ -1,13 +1,17 @@
-h1 市区町村ログイン
+.container
+  .text-center
+    h3.my-4 自治体ログイン
 
-= form_with scope: :session, local: true do |f|
-  .form-group
-    = f.label :name, '市区町村名'
-    = f.text_field :name, class: 'form-control', id: 'session-name'
-  .form-group 
-    = f.label :email, 'メールアドレス'
-    = f.text_field :email, class: 'form-control', id: 'session-email'
-  .form-group 
-    = f.label :password, 'パスワード'
-    = f.text_field :password, class: 'form-control', id: 'session-password'
-  = f.submit 'ログインする', class: 'btn btn-primary'
+    = form_with scope: :session, local: true do |f|
+      .row.justify-content-center
+        .col-sm-4
+          .form-group
+            = f.label :name, '市区町村名'
+            = f.text_field :name, class: 'form-control', id: 'session-name'
+          .form-group 
+            = f.label :email, 'メールアドレス'
+            = f.text_field :email, class: 'form-control', id: 'session-email'
+          .form-group 
+            = f.label :password, 'パスワード'
+            = f.text_field :password, class: 'form-control', id: 'session-password'
+          = f.submit 'ログインする', class: 'btn btn-primary'
