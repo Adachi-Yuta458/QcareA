@@ -27,22 +27,19 @@
           tr 
             th.bg-light= Question.human_attribute_name(:created_at)
             td= l @question.created_at
-
-  - if @question.answer.nil?
-    = form_with model: [:admin, @question, @question.build_answer], local: true do |f|
-      .form-group 
-        = f.label :title
-        = f.text_field :title, class: 'form-control'
-      .form-group
-        = f.label :content
-        = f.text_area :content, rows: 5, class: 'form-control'
-      .d-grid.gap-2.col-3.mx-auto.my-3
-        = f.submit nil, name: 'update', value: '回答する', class: 'btn btn-primary'
-    .d-grid.gap-2.col-3.mx-auto.my-3
-      = link_to '作成中', admin_question_activenesses_path(@question), method: 'post', class: 'btn btn-primary'
-  - else 
-    .row 
-      .col-10
+      - if @question.answer.nil?
+        = form_with model: [:admin, @question, @question.build_answer], local: true do |f|
+          .form-group 
+            = f.label :title, class: 'mb-2'
+            = f.text_field :title, class: 'form-control mb-3'
+          .form-group
+            = f.label :content, class: 'mb-2'
+            = f.text_area :content, rows: 5, class: 'form-control mb-4'
+          .d-grid.gap-2.col-3.mx-auto
+            = f.submit nil, name: 'update', value: '回答する', class: 'btn btn-primary'
+        .d-grid.gap-2.col-3.mx-auto.my-3
+          = link_to '作成中', admin_question_activenesses_path(@question), method: 'post', class: 'btn btn-secondary'
+      - else 
         table.mb-4.table.table-hover.table-bordered
           tbody 
             tr 
