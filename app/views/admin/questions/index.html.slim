@@ -19,8 +19,8 @@
         .col-4
           = f.submit nil, value: '検索する', class: 'btn btn-primary'
 
-  table.table.table-hover
-    thead.thead-default
+  table.table.table-hover.table-bordered
+    thead.table-light
       tr
         th= Question.human_attribute_name(:service)
         th= Question.human_attribute_name(:title)
