@@ -2,39 +2,43 @@
   h4.my-3 質問一覧
 
   = form_with url: admin_questions_path, local: true do |f|
-    .form-group.row
-      = f.label :service, 'サービス種別'
-      .col-sm-4
-        .border.rounded
-          = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
-          { include_blank: true }, class: 'form-control js-searchable'
-    .form-group.my-3
-      = f.label :status, '回答ステータス'
-      = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
-        { include_blank: true }
-    = f.submit nil, value: '検索する', class: 'btn btn-primary'
+    .form-group
+      .row.mb-3
+        = f.label :service, 'サービス種別', class: 'col-2 col-form-label'
+        .col-4
+          .border.rounded
+            = f.select :service, Question.services.keys.map {|k| [I18n.t("enums.question.service.#{k}"), k]},\
+            { include_blank: true }, class: 'form-control js-searchable'
+      .row.mb-3 
+        .col-8 
+          .row.mb-3
+            = f.label :status, '回答ステータス', class: 'col-3 col-form-label'
+            .col-6
+              = f.select :status, Question.statuses.keys.map {|k| [I18n.t("enums.question.status.#{k}"), k]},\
+              { include_blank: true }, class: 'form-control'
+        .col-4
+          = f.submit nil, value: '検索する', class: 'btn btn-primary'
 
-  .my-3
-    table.table.table-hover
-      thead.thead-default
+  table.table.table-hover
+    thead.thead-default
+      tr
+        th= Question.human_attribute_name(:service)
+        th= Question.human_attribute_name(:title)
+        th= Question.human_attribute_name(:content)
+        th= Question.human_attribute_name(:status)
+        th= Question.human_attribute_name(:categories)
+        th= Question.human_attribute_name(:created_at)
+        th= Question.human_attribute_name(:updated_at)
+        th= Question.human_attribute_name(:local_government_id)
+    tbody
+      - @questions.each do |question|
         tr
-          th= Question.human_attribute_name(:service)
-          th= Question.human_attribute_name(:title)
-          th= Question.human_attribute_name(:content)
-          th= Question.human_attribute_name(:status)
-          th= Question.human_attribute_name(:categories)
-          th= Question.human_attribute_name(:created_at)
-          th= Question.human_attribute_name(:updated_at)
-          th= Question.human_attribute_name(:local_government_id)
-      tbody
-        - @questions.each do |question|
-          tr
-            td= question.service_i18n
-            td= link_to question.title, admin_question_path(question)
-            td= question.content  
-            td= question.status_i18n
-            td= question.categories.to_human.join(' ')
-            td= l question.created_at
-            td= l question.updated_at
-            td= question.local_government_id
+          td= question.service_i18n
+          td= link_to question.title, admin_question_path(question)
+          td= question.content  
+          td= question.status_i18n
+          td= question.categories.to_human.join(' ')
+          td= l question.created_at
+          td= l question.updated_at
+          td= question.local_government_id
 
