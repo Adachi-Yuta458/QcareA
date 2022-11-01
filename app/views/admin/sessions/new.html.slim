@@ -6,12 +6,12 @@
       .row.justify-content-center
         .col-sm-4
           .form-group
-            = f.label :name, '市区町村名'
-            = f.text_field :name, class: 'form-control', id: 'session-name'
+            = f.label :name, '市区町村名', class: 'mb-2', for: 'session-name'
+            = f.text_field :name, class: 'form-control mb-3', id: 'session-name', placeholder: "市区町村"
           .form-group 
-            = f.label :email, 'メールアドレス'
-            = f.text_field :email, class: 'form-control', id: 'session-email'
+            = f.label :email, 'メールアドレス', class: 'mb-2', for: 'session-email'
+            = f.text_field :email, class: 'form-control mb-3', id: 'session-email', placeholder: "Email address"
           .form-group 
-            = f.label :password, 'パスワード'
-            = f.text_field :password, class: 'form-control', id: 'session-password'
-          = f.submit 'ログインする', class: 'btn btn-primary'
+            = f.label :password, 'パスワード', class: 'mb-2', for: 'session-password'
+            = f.password_field :password, class: 'form-control mb-4', id: 'session-password', placeholder: "Password"
+          = f.submit 'ログイン', class: 'btn btn-primary'
