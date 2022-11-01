@@ -1,10 +1,13 @@
-h1 ログイン
+.container
+  .text-center
+    h3.my-4 ログイン
 
-= form_with scope: :session, local: true do |f|
-  .form-group 
-    = f.label :email, 'メールアドレス'
-    = f.text_field :email, class: 'form-control', id: 'session_email'
-  .form-group 
-    = f.label :password, 'パスワード'
-    = f.password_field :password, class: 'form-control', id: 'session_password'
-  = f.submit 'ログインする', class: 'btn btn-primary'
+    = form_with scope: :session, local: true do |f|
+      .row.justify-content-center
+        .col-sm-4
+          .form-group
+            = f.label :email, 'メールアドレス', for: 'session_email', class: 'sr-only mb-2'
+            = f.text_field :email, class: 'form-control mb-3', id: 'session_email', placeholder: "Email address"
+            = f.label :password, 'パスワード', for: 'session_email', class: 'sr-only mb-2'
+            = f.password_field :password, class: 'form-control mb-4', id: 'session_password', placeholder: "Password"
+          = f.submit 'ログイン', class: 'btn btn-primary'
