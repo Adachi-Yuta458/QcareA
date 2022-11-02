@@ -1,4 +1,5 @@
 class Admin::SessionsController < Admin::ApplicationController
+  layout 'admin'
   skip_before_action :admin_login_required
 
   def new; end
