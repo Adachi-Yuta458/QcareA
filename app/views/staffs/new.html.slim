@@ -1,22 +1,19 @@
-h1 介護職員登録
+.container
+  .text-center
+    h3.my-4 新規登録
 
-.nav.justify-content-end 
-  = link_to '職員一覧', staffs_path, class: 'nav-link'
-
-= form_with model: @staff, local: true do |f|
-  .form-group 
-    = f.label :name, '名前'
-    = f.text_field :name, class: 'form-control'
-  .form-group 
-    = f.label :email, 'メールアドレス'
-    = f.text_field :email, class: 'form-control'
-  .form-group 
-    = f.label :nursing_facility_id, '介護施設ID'
-    = f.text_field :nursing_facility_id, class: 'form-control'
-  .form-group 
-    = f.label :password, 'パスワード'
-    = f.text_field :password, class: 'form-control'
-  .form-group 
-    = f.label :password_confirmation, 'パスワード（確認）'
-    = f.text_field :password_confirmation, class: 'form-control'
-  = f.submit '登録する', class: 'btn btn-primary'
+  = form_with model: @staff, local: true do |f|
+    .row.justify-content-center
+      .col-sm-4
+        .form-group
+          = f.label :name, '名前', class: 'mb-2'
+          = f.text_field :name, class: 'form-control mb-3'
+          = f.label :email, 'メールアドレス', class: 'mb-2'
+          = f.text_field :email, class: 'form-control mb-3'
+          = f.label :nursing_facility_id, '介護施設ID', class: 'mb-2'
+          = f.text_field :nursing_facility_id, class: 'form-control mb-3'
+          = f.label :password, 'パスワード', class: 'mb-2'
+          = f.text_field :password, class: 'form-control mb-3'
+          = f.label :password_confirmation, 'パスワード（確認）', class: 'mb-2'
+          = f.text_field :password_confirmation, class: 'form-control mb-5'
+        = f.submit '登録する', class: 'btn btn-primary mx-auto d-block'
