@@ -5,9 +5,6 @@
     = form_with scope: :session, local: true do |f|
       .row.justify-content-center
         .col-sm-4
-          .form-group
-            = f.label :name, '市区町村名', class: 'mb-2', for: 'session-name'
-            = f.text_field :name, class: 'form-control mb-3', id: 'session-name', placeholder: "市区町村"
           .form-group 
             = f.label :email, 'メールアドレス', class: 'mb-2', for: 'session-email'
             = f.text_field :email, class: 'form-control mb-3', id: 'session-email', placeholder: "Email address"
