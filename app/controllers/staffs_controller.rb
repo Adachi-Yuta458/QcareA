@@ -7,7 +7,8 @@ class StaffsController < ApplicationController
     @staff = Staff.new(staff_params)
 
     if @staff.save
-      redirect_to staff_url(@staff), notice: "職員「#{@staff.name}」を登録しました。"
+      session[:staff_id] = @staff.id
+      redirect_to root_url, notice: "職員「#{@staff.name}」を登録しました。"
     else
       render :new
     end
